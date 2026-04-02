@@ -1,0 +1,47 @@
+[
+  { "id": "txn-001", "date": "2026-03-01", "description": "Monthly Salary", "amount": 4200, "type": "income", "category": "Income/Salary", "status": "completed" },
+  { "id": "txn-002", "date": "2026-03-03", "description": "Grocery Shopping", "amount": 67.50, "type": "expense", "category": "Food & Dining", "status": "completed" },
+  { "id": "txn-003", "date": "2026-03-05", "description": "Electric Bill", "amount": 142.30, "type": "expense", "category": "Bills & Utilities", "status": "completed" },
+  { "id": "txn-004", "date": "2026-03-07", "description": "Uber Ride", "amount": 18.75, "type": "expense", "category": "Transportation", "status": "completed" },
+  { "id": "txn-005", "date": "2026-03-09", "description": "Netflix Subscription", "amount": 15.99, "type": "expense", "category": "Entertainment", "status": "completed" },
+  { "id": "txn-006", "date": "2026-03-11", "description": "Freelance Web Design", "amount": 850, "type": "income", "category": "Freelance", "status": "completed" },
+  { "id": "txn-007", "date": "2026-03-14", "description": "Restaurant Dinner", "amount": 43.20, "type": "expense", "category": "Food & Dining", "status": "completed" },
+  { "id": "txn-008", "date": "2026-03-18", "description": "New Running Shoes", "amount": 129.99, "type": "expense", "category": "Shopping", "status": "pending" },
+  { "id": "txn-009", "date": "2026-03-22", "description": "Dental Checkup", "amount": 95, "type": "expense", "category": "Healthcare", "status": "completed" },
+  { "id": "txn-010", "date": "2026-03-25", "description": "Gas Station", "amount": 45.60, "type": "expense", "category": "Transportation", "status": "completed" },
+
+  { "id": "txn-011", "date": "2026-02-01", "description": "Monthly Salary", "amount": 4200, "type": "income", "category": "Income/Salary", "status": "completed" },
+  { "id": "txn-012", "date": "2026-02-04", "description": "Supermarket", "amount": 82.15, "type": "expense", "category": "Food & Dining", "status": "completed" },
+  { "id": "txn-013", "date": "2026-02-06", "description": "Internet Bill", "amount": 79.99, "type": "expense", "category": "Bills & Utilities", "status": "completed" },
+  { "id": "txn-014", "date": "2026-02-10", "description": "Movie Tickets", "amount": 28.50, "type": "expense", "category": "Entertainment", "status": "completed" },
+  { "id": "txn-015", "date": "2026-02-14", "description": "Valentine's Dinner", "amount": 78.90, "type": "expense", "category": "Food & Dining", "status": "completed" },
+  { "id": "txn-016", "date": "2026-02-17", "description": "Freelance Logo Design", "amount": 450, "type": "income", "category": "Freelance", "status": "completed" },
+  { "id": "txn-017", "date": "2026-02-20", "description": "Pharmacy", "amount": 34.25, "type": "expense", "category": "Healthcare", "status": "completed" },
+  { "id": "txn-018", "date": "2026-02-23", "description": "Winter Jacket", "amount": 189.99, "type": "expense", "category": "Shopping", "status": "completed" },
+
+  { "id": "txn-019", "date": "2026-01-01", "description": "Monthly Salary", "amount": 4200, "type": "income", "category": "Income/Salary", "status": "completed" },
+  { "id": "txn-020", "date": "2026-01-05", "description": "Grocery Run", "amount": 55.80, "type": "expense", "category": "Food & Dining", "status": "completed" },
+  { "id": "txn-021", "date": "2026-01-08", "description": "Phone Bill", "amount": 65, "type": "expense", "category": "Bills & Utilities", "status": "completed" },
+  { "id": "txn-022", "date": "2026-01-12", "description": "Bus Pass", "amount": 50, "type": "expense", "category": "Transportation", "status": "completed" },
+  { "id": "txn-023", "date": "2026-01-16", "description": "Spotify Premium", "amount": 11.99, "type": "expense", "category": "Entertainment", "status": "completed" },
+  { "id": "txn-024", "date": "2026-01-20", "description": "Freelance Consulting", "amount": 1200, "type": "income", "category": "Freelance", "status": "completed" },
+  { "id": "txn-025", "date": "2026-01-25", "description": "Eye Exam", "amount": 120, "type": "expense", "category": "Healthcare", "status": "completed" },
+
+  { "id": "txn-026", "date": "2025-12-01", "description": "Monthly Salary", "amount": 4200, "type": "income", "category": "Income/Salary", "status": "completed" },
+  { "id": "txn-027", "date": "2025-12-05", "description": "Holiday Groceries", "amount": 124.30, "type": "expense", "category": "Food & Dining", "status": "completed" },
+  { "id": "txn-028", "date": "2025-12-08", "description": "Heating Bill", "amount": 198.50, "type": "expense", "category": "Bills & Utilities", "status": "completed" },
+  { "id": "txn-029", "date": "2025-12-12", "description": "Concert Tickets", "amount": 85, "type": "expense", "category": "Entertainment", "status": "completed" },
+  { "id": "txn-030", "date": "2025-12-15", "description": "Christmas Gifts", "amount": 245.75, "type": "expense", "category": "Shopping", "status": "completed" },
+  { "id": "txn-031", "date": "2025-12-20", "description": "Taxi Rides", "amount": 32.40, "type": "expense", "category": "Transportation", "status": "completed" },
+  { "id": "txn-032", "date": "2025-12-28", "description": "Flu Medicine", "amount": 22.50, "type": "expense", "category": "Healthcare", "status": "completed" },
+
+  { "id": "txn-033", "date": "2025-11-01", "description": "Monthly Salary", "amount": 4200, "type": "income", "category": "Income/Salary", "status": "completed" },
+  { "id": "txn-034", "date": "2025-11-06", "description": "Lunch Delivery", "amount": 19.90, "type": "expense", "category": "Food & Dining", "status": "completed" },
+  { "id": "txn-035", "date": "2025-11-10", "description": "Water Bill", "amount": 48.75, "type": "expense", "category": "Bills & Utilities", "status": "completed" },
+  { "id": "txn-036", "date": "2025-11-15", "description": "Freelance App Dev", "amount": 1500, "type": "income", "category": "Freelance", "status": "pending" },
+  { "id": "txn-037", "date": "2025-11-20", "description": "Headphones", "amount": 79.99, "type": "expense", "category": "Shopping", "status": "completed" },
+
+  { "id": "txn-038", "date": "2025-10-01", "description": "Monthly Salary", "amount": 4200, "type": "income", "category": "Income/Salary", "status": "completed" },
+  { "id": "txn-039", "date": "2025-10-10", "description": "Coffee Supplies", "amount": 38.40, "type": "expense", "category": "Food & Dining", "status": "completed" },
+  { "id": "txn-040", "date": "2025-10-18", "description": "Rent Payment", "amount": 175, "type": "expense", "category": "Bills & Utilities", "status": "failed" }
+]
