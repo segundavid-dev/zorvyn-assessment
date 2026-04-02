@@ -4,7 +4,7 @@ import {
   MoneyReceive01Icon,
   MoneySend01Icon,
 } from "@hugeicons/core-free-icons";
-import { useDashboardStore } from "../../stores/dashboardStore";
+import { useDashboardStore } from "../../stores/dashboard-store";
 import SummaryCard from "../../components/dashboard/SummaryCard";
 import BalanceTrendChart from "../../components/dashboard/BalanceTrendChart";
 import SpendingBreakdownChart from "../../components/dashboard/SpendingBreakdownChart";
