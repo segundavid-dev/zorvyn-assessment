@@ -9,6 +9,7 @@ import SummaryCard from "../../components/dashboard/SummaryCard";
 import BalanceTrendChart from "../../components/dashboard/BalanceTrendChart";
 import SpendingBreakdownChart from "../../components/dashboard/SpendingBreakdownChart";
 import RecentTransactions from "../../components/dashboard/RecentTransactions";
+import DashboardSkeleton from "../../components/skeleton/dashboard-skeleton";
 
 function Dashboard() {
   const { data, isLoading, error, fetchDashboard } = useDashboardStore();
@@ -18,7 +19,7 @@ function Dashboard() {
   }, [fetchDashboard]);
 
   if (isLoading) {
-    return <p className="text-gray-500">Loading dashboard...</p>;
+    return <DashboardSkeleton />;
   }
 
   if (error || !data) {
