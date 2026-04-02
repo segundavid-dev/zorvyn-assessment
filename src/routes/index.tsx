@@ -3,6 +3,7 @@ import DashboardLayout from "../components/layout/DashboardLayout";
 import Dashboard from "../pages/dashboard/Dashboard";
 import Transactions from "../pages/transactions/Transactions";
 import Insights from "../pages/insights/Insights";
+import NotFound from "../pages/not-found/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
       { path: "transactions", element: <Transactions /> },
       { path: "insights", element: <Insights /> },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 
