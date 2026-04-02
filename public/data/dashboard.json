@@ -1,0 +1,104 @@
+{
+  "summary": {
+    "totalBalance": {
+      "label": "Total Balance",
+      "value": 19547.15,
+      "change": 8.3
+    },
+    "income": { "label": "Income", "value": 5050, "change": 8.6 },
+    "expenses": { "label": "Expenses", "value": 558.33, "change": -27.4 }
+  },
+  "balanceTrend": [
+    {
+      "month": "Oct 2025",
+      "income": 4200,
+      "expenses": 213.4,
+      "balance": 3986.6
+    },
+    {
+      "month": "Nov 2025",
+      "income": 5700,
+      "expenses": 148.64,
+      "balance": 9538.0
+    },
+    {
+      "month": "Dec 2025",
+      "income": 4200,
+      "expenses": 708.45,
+      "balance": 13029.51
+    },
+    {
+      "month": "Jan 2026",
+      "income": 5400,
+      "expenses": 302.79,
+      "balance": 18126.72
+    },
+    {
+      "month": "Feb 2026",
+      "income": 4650,
+      "expenses": 493.78,
+      "balance": 22282.94
+    },
+    {
+      "month": "Mar 2026",
+      "income": 5050,
+      "expenses": 558.33,
+      "balance": 26774.61
+    }
+  ],
+  "spendingBreakdown": [
+    { "category": "Food & Dining", "amount": 510.25 },
+    { "category": "Bills & Utilities", "amount": 709.54 },
+    { "category": "Shopping", "amount": 645.72 },
+    { "category": "Transportation", "amount": 146.75 },
+    { "category": "Entertainment", "amount": 141.48 },
+    { "category": "Healthcare", "amount": 271.75 }
+  ],
+  "recentTransactions": [
+    {
+      "id": "txn-010",
+      "date": "2026-03-25",
+      "description": "Gas Station",
+      "amount": 45.6,
+      "type": "expense",
+      "category": "Transportation",
+      "status": "completed"
+    },
+    {
+      "id": "txn-009",
+      "date": "2026-03-22",
+      "description": "Dental Checkup",
+      "amount": 95,
+      "type": "expense",
+      "category": "Healthcare",
+      "status": "completed"
+    },
+    {
+      "id": "txn-008",
+      "date": "2026-03-18",
+      "description": "New Running Shoes",
+      "amount": 129.99,
+      "type": "expense",
+      "category": "Shopping",
+      "status": "pending"
+    },
+    {
+      "id": "txn-007",
+      "date": "2026-03-14",
+      "description": "Restaurant Dinner",
+      "amount": 43.2,
+      "type": "expense",
+      "category": "Food & Dining",
+      "status": "completed"
+    },
+    {
+      "id": "txn-006",
+      "date": "2026-03-11",
+      "description": "Freelance Web Design",
+      "amount": 850,
+      "type": "income",
+      "category": "Freelance",
+      "status": "completed"
+    }
+  ]
+}

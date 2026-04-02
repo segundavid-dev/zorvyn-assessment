@@ -1,0 +1,20 @@
+{
+  "topCategories": [
+    { "category": "Bills & Utilities", "amount": 709.54, "percentage": 29.2, "transactionCount": 6 },
+    { "category": "Shopping", "amount": 645.72, "percentage": 26.6, "transactionCount": 4 },
+    { "category": "Food & Dining", "amount": 510.25, "percentage": 21.0, "transactionCount": 8 },
+    { "category": "Healthcare", "amount": 271.75, "percentage": 11.2, "transactionCount": 4 },
+    { "category": "Transportation", "amount": 146.75, "percentage": 6.0, "transactionCount": 4 },
+    { "category": "Entertainment", "amount": 141.48, "percentage": 5.8, "transactionCount": 4 }
+  ],
+  "monthlyTrends": [
+    { "month": "Oct 2025", "income": 4200, "expenses": 213.40, "savings": 3986.60 },
+    { "month": "Nov 2025", "income": 5700, "expenses": 148.64, "savings": 5551.36 },
+    { "month": "Dec 2025", "income": 4200, "expenses": 708.45, "savings": 3491.55 },
+    { "month": "Jan 2026", "income": 5400, "expenses": 302.79, "savings": 5097.21 },
+    { "month": "Feb 2026", "income": 4650, "expenses": 493.78, "savings": 4156.22 },
+    { "month": "Mar 2026", "income": 5050, "expenses": 558.33, "savings": 4491.67 }
+  ],
+  "averageMonthlySpend": 404.23,
+  "averageMonthlyIncome": 4866.67
+}
