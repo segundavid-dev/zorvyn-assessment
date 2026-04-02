@@ -1,121 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
-
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    <div>
+      <h1>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam eveniet
+        quas quis veritatis dicta voluptatum asperiores optio aliquam deleniti
+        vel! Ipsa corrupti quibusdam deleniti culpa inventore tempore maiores
+        eos illo! Impedit est minima quasi labore ex earum error tempore at
+        distinctio et, recusandae minus similique expedita doloribus aut!
+        Consequuntur vel aliquid quod, animi recusandae nobis adipisci ea
+        consectetur? Quod, consequatur! Eligendi, perferendis quam veritatis
+        illum fugiat atque natus dignissimos voluptas laborum quae excepturi
+        accusamus molestias impedit commodi hic aliquid repudiandae! Quae magni
+        rerum debitis, libero ea iure sapiente voluptatem rem. Deleniti id
+        consequuntur iste veritatis, neque dignissimos amet repudiandae et eum
+        expedita consectetur nobis, nihil quisquam vitae fuga commodi aperiam ab
+        eos non placeat voluptate voluptatibus nulla! Laboriosam, dolorum
+        blanditiis. Quasi hic cupiditate perspiciatis placeat, iste vero modi ab
+        ea, praesentium deleniti debitis totam fugiat minima. Mollitia illum
+        consequuntur nemo, labore modi, ducimus exercitationem perferendis,
+        omnis odit ad obcaecati aspernatur?
+      </h1>
+    </div>
+  );
 }
 
-export default App
+export default App;
