@@ -1,45 +1,17 @@
-import { useEffect, useState } from "react";
 import {
   Wallet01Icon,
   MoneyReceive01Icon,
   MoneySend01Icon,
 } from "@hugeicons/core-free-icons";
-import { fetchJson } from "../../services/api";
-import type {
-  DashboardSummary,
-  BalanceTrendPoint,
-  SpendingCategory,
-} from "../../types/dashboard";
-import type { Transaction } from "../../types/transaction";
+import { useDashboardStore } from "../../stores/dashboardStore";
 import SummaryCard from "../../components/dashboard/SummaryCard";
 import BalanceTrendChart from "../../components/dashboard/BalanceTrendChart";
 import SpendingBreakdownChart from "../../components/dashboard/SpendingBreakdownChart";
 import RecentTransactions from "../../components/dashboard/RecentTransactions";
 
-interface DashboardData {
-  summary: DashboardSummary;
-  balanceTrend: BalanceTrendPoint[];
-  spendingBreakdown: SpendingCategory[];
-  recentTransactions: Transaction[];
-}
-
 function Dashboard() {
-  const [data, setData] = useState<DashboardData | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    async function loadDashboard() {
-      const response = await fetchJson<DashboardData>("/data/dashboard.json");
-      if (response.status === "success") {
-        setData(response.data);
-      } else {
-        setError(response.error ?? "Failed to load dashboard data");
-      }
-      setIsLoading(false);
-    }
-    loadDashboard();
-  }, []);
+  const { data, isLoading, error, fetchDashboard } = useDashboardStore();
+  fetchDashboard();
 
   if (isLoading) {
     return <p className="text-gray-500">Loading dashboard...</p>;
