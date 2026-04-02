@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   Wallet01Icon,
   MoneyReceive01Icon,
@@ -11,7 +12,10 @@ import RecentTransactions from "../../components/dashboard/RecentTransactions";
 
 function Dashboard() {
   const { data, isLoading, error, fetchDashboard } = useDashboardStore();
-  fetchDashboard();
+
+  useEffect(() => {
+    fetchDashboard();
+  }, [fetchDashboard]);
 
   if (isLoading) {
     return <p className="text-gray-500">Loading dashboard...</p>;
