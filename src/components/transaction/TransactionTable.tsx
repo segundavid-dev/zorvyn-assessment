@@ -19,7 +19,8 @@ function SortIndicator({
   activeField: SortField;
   direction: SortDirection;
 }) {
-  if (field !== activeField) return <span className="ml-1 text-gray-300">↕</span>;
+  if (field !== activeField)
+    return <span className="ml-1 text-gray-300">↕</span>;
   return <span className="ml-1">{direction === "asc" ? "↑" : "↓"}</span>;
 }
 
@@ -39,7 +40,7 @@ function TransactionTable({
 
   return (
     <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
-      <table className="w-full min-w-[640px] text-left text-sm">
+      <table className="w-full min-w-160 text-left text-sm">
         <thead>
           <tr className="border-b border-gray-100 text-xs text-gray-400 dark:border-gray-800">
             <th
@@ -47,7 +48,11 @@ function TransactionTable({
               onClick={() => onSort("date")}
             >
               Date
-              <SortIndicator field="date" activeField={sortField} direction={sortDirection} />
+              <SortIndicator
+                field="date"
+                activeField={sortField}
+                direction={sortDirection}
+              />
             </th>
             <th className="px-5 py-3 font-medium">Description</th>
             <th className="px-5 py-3 font-medium">Category</th>
@@ -56,7 +61,11 @@ function TransactionTable({
               onClick={() => onSort("amount")}
             >
               Amount
-              <SortIndicator field="amount" activeField={sortField} direction={sortDirection} />
+              <SortIndicator
+                field="amount"
+                activeField={sortField}
+                direction={sortDirection}
+              />
             </th>
             <th className="px-5 py-3 text-right font-medium">Status</th>
           </tr>
@@ -74,11 +83,17 @@ function TransactionTable({
                   year: "numeric",
                 })}
               </td>
-              <td className="whitespace-nowrap px-5 py-3 text-gray-900 dark:text-white">{txn.description}</td>
-              <td className="whitespace-nowrap px-5 py-3 text-gray-500 dark:text-gray-400">{txn.category}</td>
+              <td className="whitespace-nowrap px-5 py-3 text-gray-900 dark:text-white">
+                {txn.description}
+              </td>
+              <td className="whitespace-nowrap px-5 py-3 text-gray-500 dark:text-gray-400">
+                {txn.category}
+              </td>
               <td
                 className={`px-5 py-3 text-right font-medium ${
-                  txn.type === "income" ? "text-emerald-600" : "text-gray-900 dark:text-white"
+                  txn.type === "income"
+                    ? "text-emerald-600"
+                    : "text-gray-900 dark:text-white"
                 }`}
               >
                 {txn.type === "income" ? "+" : "-"}$
