@@ -23,7 +23,7 @@ interface TransactionFiltersProps {
 }
 
 const selectStyles =
-  "rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700 outline-none focus:border-gray-400 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:focus:border-gray-500";
+  "shrink-0 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700 outline-none focus:border-gray-400 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:focus:border-gray-500";
 
 function TransactionFilters({
   searchQuery,
@@ -36,13 +36,13 @@ function TransactionFilters({
   onStatusChange,
 }: TransactionFiltersProps) {
   return (
-    <div className="flex flex-wrap items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-900">
+    <div className="flex items-center gap-3 overflow-x-auto rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-900">
       <input
         type="text"
         placeholder="Search transactions..."
         value={searchQuery}
         onChange={(e) => onSearchChange(e.target.value)}
-        className="rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-gray-400 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:placeholder-gray-500 dark:focus:border-gray-500 md:w-48"
+        className="shrink-0 rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-gray-400 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:placeholder-gray-500 dark:focus:border-gray-500 w-48"
       />
 
       <select

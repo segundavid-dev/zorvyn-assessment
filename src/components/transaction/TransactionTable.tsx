@@ -39,7 +39,7 @@ function TransactionTable({
 
   return (
     <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
-      <table className="w-full text-left text-sm">
+      <table className="w-full min-w-[640px] text-left text-sm">
         <thead>
           <tr className="border-b border-gray-100 text-xs text-gray-400 dark:border-gray-800">
             <th
@@ -67,15 +67,15 @@ function TransactionTable({
               key={txn.id}
               className="border-b border-gray-50 last:border-0 dark:border-gray-800"
             >
-              <td className="px-5 py-3 text-gray-500 dark:text-gray-400">
+              <td className="whitespace-nowrap px-5 py-3 text-gray-500 dark:text-gray-400">
                 {new Date(txn.date).toLocaleDateString("en-US", {
                   month: "short",
                   day: "numeric",
                   year: "numeric",
                 })}
               </td>
-              <td className="px-5 py-3 text-gray-900 dark:text-white">{txn.description}</td>
-              <td className="px-5 py-3 text-gray-500 dark:text-gray-400">{txn.category}</td>
+              <td className="whitespace-nowrap px-5 py-3 text-gray-900 dark:text-white">{txn.description}</td>
+              <td className="whitespace-nowrap px-5 py-3 text-gray-500 dark:text-gray-400">{txn.category}</td>
               <td
                 className={`px-5 py-3 text-right font-medium ${
                   txn.type === "income" ? "text-emerald-600" : "text-gray-900 dark:text-white"
