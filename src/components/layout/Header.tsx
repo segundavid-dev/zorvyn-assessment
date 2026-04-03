@@ -1,5 +1,5 @@
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Sun01Icon, Moon01Icon } from "@hugeicons/core-free-icons";
+import { Sun01Icon, Moon02Icon } from "@hugeicons/core-free-icons";
 import { useTheme } from "../../hooks/useTheme";
 
 function Header() {
@@ -11,10 +11,10 @@ function Header() {
       <div className="flex items-center gap-3">
         <button
           onClick={toggleTheme}
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-gray-500 transition-colors hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800"
+          className="flex h-8 w-8 items-center justify-center rounded-lg text-gray-500 transition-colors hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800 cursor-pointer"
         >
           <HugeiconsIcon
-            icon={theme === "light" ? Moon01Icon : Sun01Icon}
+            icon={theme === "light" ? Moon02Icon : Sun01Icon}
             size={18}
           />
         </button>
