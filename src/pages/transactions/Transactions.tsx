@@ -1,15 +1,21 @@
 import { useEffect, useState, useMemo } from "react";
 import { useTransactionStore } from "../../stores/transaction-store";
+import { useRole } from "../../hooks/useRole";
 import TransactionFilters from "../../components/transaction/TransactionFilters";
 import TransactionTable from "../../components/transaction/TransactionTable";
+import TransactionModal from "../../components/transaction/TransactionModal";
 import TransactionSkeleton from "../../components/skeleton/transaction-skeleton";
+import Button from "../../components/ui/button";
+import type { Transaction } from "../../types/transaction";
 
 type SortField = "date" | "amount";
 type SortDirection = "asc" | "desc";
 
 function Transactions() {
-  const { transactions, isLoading, error, fetchTransactions } =
+  const { transactions, isLoading, error, fetchTransactions, addTransaction, editTransaction } =
     useTransactionStore();
+  const { role } = useRole();
+  const isAdmin = role === "admin";
 
   const [searchQuery, setSearchQuery] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
@@ -17,6 +23,8 @@ function Transactions() {
   const [statusFilter, setStatusFilter] = useState("all");
   const [sortField, setSortField] = useState<SortField>("date");
   const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
+  const [modalOpen, setModalOpen] = useState(false);
+  const [editingTransaction, setEditingTransaction] = useState<Transaction | undefined>();
 
   useEffect(() => {
     fetchTransactions();
@@ -62,6 +70,26 @@ function Transactions() {
     }
   }
 
+  function handleEdit(txn: Transaction) {
+    setEditingTransaction(txn);
+    setModalOpen(true);
+  }
+
+  function handleAdd() {
+    setEditingTransaction(undefined);
+    setModalOpen(true);
+  }
+
+  function handleSave(txn: Transaction) {
+    if (editingTransaction) {
+      editTransaction(txn.id, txn);
+    } else {
+      addTransaction(txn);
+    }
+    setModalOpen(false);
+    setEditingTransaction(undefined);
+  }
+
   if (isLoading) {
     return <TransactionSkeleton />;
   }
@@ -72,10 +100,19 @@ function Transactions() {
 
   return (
     <div>
-      <h1 className="font-serif text-3xl text-gray-900 dark:text-white">Transactions</h1>
-      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-        View and manage your transactions.
-      </p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="font-serif text-3xl text-gray-900 dark:text-white">Transactions</h1>
+          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+            View and manage your transactions.
+          </p>
+        </div>
+        {isAdmin && (
+          <Button size="sm" onClick={handleAdd}>
+            Add Transaction
+          </Button>
+        )}
+      </div>
 
       <div className="mt-6">
         <TransactionFilters
@@ -96,8 +133,20 @@ function Transactions() {
           sortField={sortField}
           sortDirection={sortDirection}
           onSort={handleSort}
+          onEdit={isAdmin ? handleEdit : undefined}
         />
       </div>
+
+      {modalOpen && (
+        <TransactionModal
+          transaction={editingTransaction}
+          onSave={handleSave}
+          onClose={() => {
+            setModalOpen(false);
+            setEditingTransaction(undefined);
+          }}
+        />
+      )}
     </div>
   );
 }

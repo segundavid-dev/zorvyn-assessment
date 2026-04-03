@@ -8,6 +8,7 @@ interface TransactionTableProps {
   sortField: SortField;
   sortDirection: SortDirection;
   onSort: (field: SortField) => void;
+  onEdit?: (transaction: Transaction) => void;
 }
 
 function SortIndicator({
@@ -29,6 +30,7 @@ function TransactionTable({
   sortField,
   sortDirection,
   onSort,
+  onEdit,
 }: TransactionTableProps) {
   if (transactions.length === 0) {
     return (
@@ -68,6 +70,9 @@ function TransactionTable({
               />
             </th>
             <th className="px-5 py-3 text-right font-medium">Status</th>
+            {onEdit && (
+              <th className="px-5 py-3 text-right font-medium">Actions</th>
+            )}
           </tr>
         </thead>
         <tbody>
@@ -114,6 +119,16 @@ function TransactionTable({
                   {txn.status}
                 </span>
               </td>
+              {onEdit && (
+                <td className="px-5 py-3 text-right">
+                  <button
+                    onClick={() => onEdit(txn)}
+                    className="rounded-md px-2 py-1 text-xs font-medium text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white"
+                  >
+                    Edit
+                  </button>
+                </td>
+              )}
             </tr>
           ))}
         </tbody>
