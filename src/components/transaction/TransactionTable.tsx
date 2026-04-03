@@ -1,4 +1,6 @@
 import type { Transaction } from "../../types/transaction";
+import { formatCurrency } from "../../utils/currencyFormat";
+import { formatShortDate } from "../../utils/dateFormat";
 
 type SortField = "date" | "amount";
 type SortDirection = "asc" | "desc";
@@ -82,11 +84,7 @@ function TransactionTable({
               className="border-b border-gray-50 last:border-0 dark:border-gray-800"
             >
               <td className="whitespace-nowrap px-5 py-3 text-gray-500 dark:text-gray-400">
-                {new Date(txn.date).toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                  year: "numeric",
-                })}
+                {formatShortDate(txn.date)}
               </td>
               <td className="whitespace-nowrap px-5 py-3 text-gray-900 dark:text-white">
                 {txn.description}
@@ -102,9 +100,7 @@ function TransactionTable({
                 }`}
               >
                 {txn.type === "income" ? "+" : "-"}$
-                {txn.amount.toLocaleString("en-US", {
-                  minimumFractionDigits: 2,
-                })}
+                {formatCurrency(txn.amount)}
               </td>
               <td className="px-5 py-3 text-right">
                 <span

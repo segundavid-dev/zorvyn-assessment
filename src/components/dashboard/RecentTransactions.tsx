@@ -1,5 +1,7 @@
 import { Link } from "react-router";
 import type { Transaction } from "../../types/transaction";
+import { formatCurrency } from "../../utils/currencyFormat";
+import { formatShortDate } from "../../utils/dateFormat";
 
 interface RecentTransactionsProps {
   transactions: Transaction[];
@@ -33,10 +35,7 @@ function RecentTransactions({ transactions }: RecentTransactionsProps) {
           {transactions.map((txn) => (
             <tr key={txn.id} className="border-b border-gray-50 last:border-0 dark:border-gray-800">
               <td className="py-3 text-gray-500 dark:text-gray-400">
-                {new Date(txn.date).toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                })}
+                {formatShortDate(txn.date)}
               </td>
               <td className="py-3 text-gray-900 dark:text-white">{txn.description}</td>
               <td className="py-3 text-gray-500 dark:text-gray-400">{txn.category}</td>
@@ -46,9 +45,7 @@ function RecentTransactions({ transactions }: RecentTransactionsProps) {
                 }`}
               >
                 {txn.type === "income" ? "+" : "-"}$
-                {txn.amount.toLocaleString("en-US", {
-                  minimumFractionDigits: 2,
-                })}
+                {formatCurrency(txn.amount)}
               </td>
               <td className="py-3 text-right">
                 <span

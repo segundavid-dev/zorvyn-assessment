@@ -1,5 +1,6 @@
 import { HugeiconsIcon } from "@hugeicons/react";
 import type { IconSvgElement } from "@hugeicons/react";
+import { formatCurrency } from "../../utils/currencyFormat";
 
 interface SummaryCardProps {
   label: string;
@@ -20,7 +21,7 @@ function SummaryCard({ label, value, change, icon }: SummaryCardProps) {
         </div>
       </div>
       <p className="mt-3 font-serif text-2xl text-gray-900 dark:text-white">
-        ${value.toLocaleString("en-US", { minimumFractionDigits: 2 })}
+        ${formatCurrency(value)}
       </p>
       <p className={`mt-1 text-xs font-medium ${isPositive ? "text-emerald-600" : "text-red-500"}`}>
         {isPositive ? "+" : ""}{change}% from last month
