@@ -8,6 +8,7 @@ import {
 import { useInsightStore } from "../../stores/insight-store";
 import InsightSkeleton from "../../components/skeleton/insight-skeleton";
 import InsightCard from "../../components/insight/InsightCard";
+import { formatDollar } from "../../utils/currencyFormat";
 import TopCategoriesChart from "../../components/insight/TopCategoriesChart";
 import MonthlyComparisonChart from "../../components/insight/MonthlyComparisonChart";
 
@@ -44,18 +45,18 @@ function Insights() {
         <InsightCard
           title="Highest Spending"
           value={highestCategory.category}
-          description={`$${highestCategory.amount.toLocaleString()} · ${highestCategory.percentage}% of total`}
+          description={`${formatDollar(highestCategory.amount)} · ${highestCategory.percentage}% of total`}
           icon={AnalyticsUpIcon}
         />
         <InsightCard
           title="Avg. Monthly Spend"
-          value={`$${data.averageMonthlySpend.toLocaleString()}`}
+          value={formatDollar(data.averageMonthlySpend)}
           description="Across all categories"
           icon={MoneySend01Icon}
         />
         <InsightCard
           title="Avg. Monthly Income"
-          value={`$${data.averageMonthlyIncome.toLocaleString()}`}
+          value={formatDollar(data.averageMonthlyIncome)}
           description="Salary + freelance"
           icon={MoneyReceive01Icon}
         />

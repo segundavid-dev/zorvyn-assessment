@@ -1,7 +1,13 @@
 import { Link } from "react-router";
-import type { Transaction } from "../../types/transaction";
+import type { Transaction, TransactionStatus } from "../../types/transaction";
 import { formatCurrency } from "../../utils/currencyFormat";
 import { formatShortDate } from "../../utils/dateFormat";
+
+const statusStyleMap: Record<TransactionStatus, string> = {
+  completed: "bg-emerald-50 text-emerald-700",
+  pending: "bg-amber-50 text-amber-700",
+  failed: "bg-red-50 text-red-700",
+};
 
 interface RecentTransactionsProps {
   transactions: Transaction[];
@@ -33,29 +39,31 @@ function RecentTransactions({ transactions }: RecentTransactionsProps) {
         </thead>
         <tbody>
           {transactions.map((txn) => (
-            <tr key={txn.id} className="border-b border-gray-50 last:border-0 dark:border-gray-800">
+            <tr
+              key={txn.id}
+              className="border-b border-gray-50 last:border-0 dark:border-gray-800"
+            >
               <td className="py-3 text-gray-500 dark:text-gray-400">
                 {formatShortDate(txn.date)}
               </td>
-              <td className="py-3 text-gray-900 dark:text-white">{txn.description}</td>
-              <td className="py-3 text-gray-500 dark:text-gray-400">{txn.category}</td>
+              <td className="py-3 text-gray-900 dark:text-white">
+                {txn.description}
+              </td>
+              <td className="py-3 text-gray-500 dark:text-gray-400">
+                {txn.category}
+              </td>
               <td
                 className={`py-3 text-right font-medium ${
-                  txn.type === "income" ? "text-emerald-600" : "text-gray-900 dark:text-white"
+                  txn.type === "income"
+                    ? "text-emerald-600"
+                    : "text-gray-900 dark:text-white"
                 }`}
               >
-                {txn.type === "income" ? "+" : "-"}$
-                {formatCurrency(txn.amount)}
+                {txn.type === "income" ? "+" : "-"}${formatCurrency(txn.amount)}
               </td>
               <td className="py-3 text-right">
                 <span
-                  className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${
-                    txn.status === "completed"
-                      ? "bg-emerald-50 text-emerald-700"
-                      : txn.status === "pending"
-                        ? "bg-amber-50 text-amber-700"
-                        : "bg-red-50 text-red-700"
-                  }`}
+                  className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${statusStyleMap[txn.status]}`}
                 >
                   {txn.status}
                 </span>

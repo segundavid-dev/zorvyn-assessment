@@ -1,18 +1,11 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 import type { SpendingCategory } from "../../types/dashboard";
+import { formatDollar } from "../../utils/currencyFormat";
+import { CHART_COLORS } from "../../constants/chart-colors";
 
 interface SpendingBreakdownChartProps {
   data: SpendingCategory[];
 }
-
-const COLORS = [
-  "#ef4444",
-  "#8b5cf6",
-  "#f97316",
-  "#14b8a6",
-  "#3b82f6",
-  "#ec4899",
-];
 
 function SpendingBreakdownChart({ data }: SpendingBreakdownChartProps) {
   return (
@@ -35,12 +28,12 @@ function SpendingBreakdownChart({ data }: SpendingBreakdownChartProps) {
                 strokeWidth={2}
               >
                 {data.map((_entry, index) => (
-                  <Cell key={index} fill={COLORS[index % COLORS.length]} />
+                  <Cell key={index} fill={CHART_COLORS[index % CHART_COLORS.length]} />
                 ))}
               </Pie>
               <Tooltip
                 formatter={(value) => [
-                  `$${Number(value).toLocaleString()}`,
+                  formatDollar(value as number),
                   "",
                 ]}
                 contentStyle={{
@@ -60,13 +53,13 @@ function SpendingBreakdownChart({ data }: SpendingBreakdownChartProps) {
             >
               <span
                 className="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
-                style={{ backgroundColor: COLORS[index % COLORS.length] }}
+                style={{ backgroundColor: CHART_COLORS[index % CHART_COLORS.length] }}
               />
               <span className="whitespace-nowrap text-gray-600 dark:text-gray-400">
                 {item.category}
               </span>
               <span className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                ${item.amount.toLocaleString()}
+                {formatDollar(item.amount)}
               </span>
             </div>
           ))}

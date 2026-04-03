@@ -8,6 +8,8 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import type { BalanceTrendPoint } from "../../types/dashboard";
+import { formatDollar } from "../../utils/currencyFormat";
+import { SEMANTIC_COLORS } from "../../constants/chart-colors";
 
 interface BalanceTrendChartProps {
   data: BalanceTrendPoint[];
@@ -21,7 +23,10 @@ function BalanceTrendChart({ data }: BalanceTrendChartProps) {
       </h3>
       <div className="mt-4 h-64">
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={data} margin={{ top: 5, right: 5, left: -10, bottom: 0 }}>
+          <AreaChart
+            data={data}
+            margin={{ top: 5, right: 5, left: -10, bottom: 0 }}
+          >
             <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" />
             <XAxis
               dataKey="month"
@@ -36,7 +41,7 @@ function BalanceTrendChart({ data }: BalanceTrendChartProps) {
               tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}k`}
             />
             <Tooltip
-              formatter={(value) => [`$${Number(value).toLocaleString()}`, ""]}
+              formatter={(value) => [formatDollar(value as number), ""]}
               contentStyle={{
                 borderRadius: "8px",
                 border: "1px solid #e5e7eb",
@@ -46,8 +51,8 @@ function BalanceTrendChart({ data }: BalanceTrendChartProps) {
             <Area
               type="monotone"
               dataKey="income"
-              stroke="#22c55e"
-              fill="#22c55e"
+              stroke={SEMANTIC_COLORS.income}
+              fill={SEMANTIC_COLORS.income}
               fillOpacity={0.1}
               strokeWidth={2}
               name="Income"
@@ -55,8 +60,8 @@ function BalanceTrendChart({ data }: BalanceTrendChartProps) {
             <Area
               type="monotone"
               dataKey="expenses"
-              stroke="#ef4444"
-              fill="#ef4444"
+              stroke={SEMANTIC_COLORS.expenses}
+              fill={SEMANTIC_COLORS.expenses}
               fillOpacity={0.1}
               strokeWidth={2}
               name="Expenses"
@@ -64,8 +69,8 @@ function BalanceTrendChart({ data }: BalanceTrendChartProps) {
             <Area
               type="monotone"
               dataKey="balance"
-              stroke="#3b82f6"
-              fill="#3b82f6"
+              stroke={SEMANTIC_COLORS.balance}
+              fill={SEMANTIC_COLORS.balance}
               fillOpacity={0.08}
               strokeWidth={2}
               name="Balance"

@@ -9,6 +9,8 @@ import {
   CartesianGrid,
 } from "recharts";
 import type { MonthlyTrend } from "../../types/insights";
+import { formatDollar } from "../../utils/currencyFormat";
+import { SEMANTIC_COLORS } from "../../constants/chart-colors";
 
 interface MonthlyComparisonChartProps {
   data: MonthlyTrend[];
@@ -37,7 +39,7 @@ function MonthlyComparisonChart({ data }: MonthlyComparisonChartProps) {
               tickFormatter={(v: number) => `$${(v / 1000).toFixed(0)}k`}
             />
             <Tooltip
-              formatter={(value) => [`$${Number(value).toLocaleString()}`, ""]}
+              formatter={(value) => [formatDollar(value as number), ""]}
               contentStyle={{
                 borderRadius: "8px",
                 border: "1px solid #e5e7eb",
@@ -49,9 +51,9 @@ function MonthlyComparisonChart({ data }: MonthlyComparisonChartProps) {
               iconSize={8}
               wrapperStyle={{ fontSize: "12px" }}
             />
-            <Bar dataKey="income" name="Income" fill="#22c55e" radius={[4, 4, 0, 0]} />
-            <Bar dataKey="expenses" name="Expenses" fill="#ef4444" radius={[4, 4, 0, 0]} />
-            <Bar dataKey="savings" name="Savings" fill="#3b82f6" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="income" name="Income" fill={SEMANTIC_COLORS.income} radius={[4, 4, 0, 0]} />
+            <Bar dataKey="expenses" name="Expenses" fill={SEMANTIC_COLORS.expenses} radius={[4, 4, 0, 0]} />
+            <Bar dataKey="savings" name="Savings" fill={SEMANTIC_COLORS.savings} radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>

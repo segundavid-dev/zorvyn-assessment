@@ -8,19 +8,12 @@ import {
   Cell,
 } from "recharts";
 import type { CategoryBreakdown } from "../../types/insights";
+import { formatDollar } from "../../utils/currencyFormat";
+import { CHART_COLORS } from "../../constants/chart-colors";
 
 interface TopCategoriesChartProps {
   data: CategoryBreakdown[];
 }
-
-const COLORS = [
-  "#ef4444",
-  "#8b5cf6",
-  "#f97316",
-  "#14b8a6",
-  "#3b82f6",
-  "#ec4899",
-];
 
 function TopCategoriesChart({ data }: TopCategoriesChartProps) {
   return (
@@ -47,7 +40,7 @@ function TopCategoriesChart({ data }: TopCategoriesChartProps) {
               width={110}
             />
             <Tooltip
-              formatter={(value) => [`$${Number(value).toLocaleString()}`, "Amount"]}
+              formatter={(value) => [formatDollar(value as number), "Amount"]}
               contentStyle={{
                 borderRadius: "8px",
                 border: "1px solid #e5e7eb",
@@ -58,7 +51,7 @@ function TopCategoriesChart({ data }: TopCategoriesChartProps) {
               {data.map((_entry, index) => (
                 <Cell
                   key={index}
-                  fill={COLORS[index % COLORS.length]}
+                  fill={CHART_COLORS[index % CHART_COLORS.length]}
                 />
               ))}
             </Bar>

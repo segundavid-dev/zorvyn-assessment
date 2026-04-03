@@ -1,4 +1,10 @@
-import type { Transaction } from "../../types/transaction";
+import type { Transaction, TransactionStatus } from "../../types/transaction";
+
+const statusStyleMap: Record<TransactionStatus, string> = {
+  completed: "bg-emerald-50 text-emerald-700",
+  pending: "bg-amber-50 text-amber-700",
+  failed: "bg-red-50 text-red-700",
+};
 import { formatCurrency } from "../../utils/currencyFormat";
 import { formatShortDate } from "../../utils/dateFormat";
 
@@ -104,13 +110,7 @@ function TransactionTable({
               </td>
               <td className="px-5 py-3 text-right">
                 <span
-                  className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${
-                    txn.status === "completed"
-                      ? "bg-emerald-50 text-emerald-700"
-                      : txn.status === "pending"
-                        ? "bg-amber-50 text-amber-700"
-                        : "bg-red-50 text-red-700"
-                  }`}
+                  className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${statusStyleMap[txn.status]}`}
                 >
                   {txn.status}
                 </span>
