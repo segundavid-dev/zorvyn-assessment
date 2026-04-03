@@ -31,17 +31,17 @@ function TransactionTable({
 }: TransactionTableProps) {
   if (transactions.length === 0) {
     return (
-      <div className="rounded-xl border border-gray-200 bg-white p-10 text-center text-sm text-gray-500">
+      <div className="rounded-xl border border-gray-200 bg-white p-10 text-center text-sm text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-400">
         No transactions found.
       </div>
     );
   }
 
   return (
-    <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
+    <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
       <table className="w-full text-left text-sm">
         <thead>
-          <tr className="border-b border-gray-100 text-xs text-gray-400">
+          <tr className="border-b border-gray-100 text-xs text-gray-400 dark:border-gray-800">
             <th
               className="cursor-pointer px-5 py-3 font-medium"
               onClick={() => onSort("date")}
@@ -65,20 +65,20 @@ function TransactionTable({
           {transactions.map((txn) => (
             <tr
               key={txn.id}
-              className="border-b border-gray-50 last:border-0"
+              className="border-b border-gray-50 last:border-0 dark:border-gray-800"
             >
-              <td className="px-5 py-3 text-gray-500">
+              <td className="px-5 py-3 text-gray-500 dark:text-gray-400">
                 {new Date(txn.date).toLocaleDateString("en-US", {
                   month: "short",
                   day: "numeric",
                   year: "numeric",
                 })}
               </td>
-              <td className="px-5 py-3 text-gray-900">{txn.description}</td>
-              <td className="px-5 py-3 text-gray-500">{txn.category}</td>
+              <td className="px-5 py-3 text-gray-900 dark:text-white">{txn.description}</td>
+              <td className="px-5 py-3 text-gray-500 dark:text-gray-400">{txn.category}</td>
               <td
                 className={`px-5 py-3 text-right font-medium ${
-                  txn.type === "income" ? "text-emerald-600" : "text-gray-900"
+                  txn.type === "income" ? "text-emerald-600" : "text-gray-900 dark:text-white"
                 }`}
               >
                 {txn.type === "income" ? "+" : "-"}$

@@ -24,8 +24,8 @@ const COLORS = [
 
 function TopCategoriesChart({ data }: TopCategoriesChartProps) {
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-5">
-      <h3 className="text-sm font-medium text-gray-500">
+    <div className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-900">
+      <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">
         Top Spending Categories
       </h3>
       <div className="mt-4">

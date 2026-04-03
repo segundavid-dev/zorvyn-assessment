@@ -7,21 +7,21 @@ interface RecentTransactionsProps {
 
 function RecentTransactions({ transactions }: RecentTransactionsProps) {
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-5">
+    <div className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-900">
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-medium text-gray-500">
+        <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">
           Recent Transactions
         </h3>
         <Link
           to="/transactions"
-          className="text-xs font-medium text-gray-500 hover:text-gray-900"
+          className="text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
         >
           View All
         </Link>
       </div>
       <table className="mt-4 w-full text-left text-sm">
         <thead>
-          <tr className="border-b border-gray-100 text-xs text-gray-400">
+          <tr className="border-b border-gray-100 text-xs text-gray-400 dark:border-gray-800">
             <th className="pb-2 font-medium">Date</th>
             <th className="pb-2 font-medium">Description</th>
             <th className="pb-2 font-medium">Category</th>
@@ -31,18 +31,18 @@ function RecentTransactions({ transactions }: RecentTransactionsProps) {
         </thead>
         <tbody>
           {transactions.map((txn) => (
-            <tr key={txn.id} className="border-b border-gray-50 last:border-0">
-              <td className="py-3 text-gray-500">
+            <tr key={txn.id} className="border-b border-gray-50 last:border-0 dark:border-gray-800">
+              <td className="py-3 text-gray-500 dark:text-gray-400">
                 {new Date(txn.date).toLocaleDateString("en-US", {
                   month: "short",
                   day: "numeric",
                 })}
               </td>
-              <td className="py-3 text-gray-900">{txn.description}</td>
-              <td className="py-3 text-gray-500">{txn.category}</td>
+              <td className="py-3 text-gray-900 dark:text-white">{txn.description}</td>
+              <td className="py-3 text-gray-500 dark:text-gray-400">{txn.category}</td>
               <td
                 className={`py-3 text-right font-medium ${
-                  txn.type === "income" ? "text-emerald-600" : "text-gray-900"
+                  txn.type === "income" ? "text-emerald-600" : "text-gray-900 dark:text-white"
                 }`}
               >
                 {txn.type === "income" ? "+" : "-"}$

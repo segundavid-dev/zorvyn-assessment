@@ -16,8 +16,8 @@ const COLORS = [
 
 function SpendingBreakdownChart({ data }: SpendingBreakdownChartProps) {
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-5">
-      <h3 className="text-sm font-medium text-gray-500">Spending Breakdown</h3>
+    <div className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-900">
+      <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">Spending Breakdown</h3>
       <div className="mt-4 flex items-center gap-6">
         <div className="h-52 w-52 shrink-0">
           <ResponsiveContainer width="100%" height="100%">
@@ -57,8 +57,8 @@ function SpendingBreakdownChart({ data }: SpendingBreakdownChartProps) {
                 className="inline-block h-2.5 w-2.5 rounded-full"
                 style={{ backgroundColor: COLORS[index % COLORS.length] }}
               />
-              <span className="text-gray-600">{item.category}</span>
-              <span className="ml-auto font-medium text-gray-900">
+              <span className="text-gray-600 dark:text-gray-400">{item.category}</span>
+              <span className="ml-auto font-medium text-gray-900 dark:text-white">
                 ${item.amount.toLocaleString()}
               </span>
             </li>
