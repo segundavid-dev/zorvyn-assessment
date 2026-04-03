@@ -5,18 +5,8 @@ import type {
   TransactionCategory,
   TransactionStatus,
 } from "../../types/transaction";
+import { CATEGORIES } from "../../constants/categories";
 import Button from "../ui/button";
-
-const CATEGORIES: TransactionCategory[] = [
-  "Food & Dining",
-  "Transportation",
-  "Shopping",
-  "Bills & Utilities",
-  "Entertainment",
-  "Healthcare",
-  "Income/Salary",
-  "Freelance",
-];
 
 interface TransactionModalProps {
   transaction?: Transaction;

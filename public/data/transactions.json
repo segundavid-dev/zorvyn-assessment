@@ -6,7 +6,7 @@
     "amount": 4200,
     "type": "income",
     "category": "Income/Salary",
-    "status": "completed"
+    "status": "failed"
   },
   {
     "id": "txn-002",

@@ -1,12 +1,12 @@
 import type { Transaction, TransactionStatus } from "../../types/transaction";
+import { formatCurrency } from "../../utils/currencyFormat";
+import { formatShortDate } from "../../utils/dateFormat";
 
 const statusStyleMap: Record<TransactionStatus, string> = {
   completed: "bg-emerald-50 text-emerald-700",
   pending: "bg-amber-50 text-amber-700",
   failed: "bg-red-50 text-red-700",
 };
-import { formatCurrency } from "../../utils/currencyFormat";
-import { formatShortDate } from "../../utils/dateFormat";
 
 type SortField = "date" | "amount";
 type SortDirection = "asc" | "desc";
@@ -105,8 +105,7 @@ function TransactionTable({
                     : "text-gray-900 dark:text-white"
                 }`}
               >
-                {txn.type === "income" ? "+" : "-"}$
-                {formatCurrency(txn.amount)}
+                {txn.type === "income" ? "+" : "-"}${formatCurrency(txn.amount)}
               </td>
               <td className="px-5 py-3 text-right">
                 <span
