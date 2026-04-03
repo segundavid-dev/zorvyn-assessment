@@ -72,8 +72,8 @@ function Transactions() {
 
   return (
     <div>
-      <h1 className="font-serif text-3xl text-gray-900">Transactions</h1>
-      <p className="mt-1 text-sm text-gray-500">
+      <h1 className="font-serif text-3xl text-gray-900 dark:text-white">Transactions</h1>
+      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
         View and manage your transactions.
       </p>
 

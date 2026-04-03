@@ -35,8 +35,8 @@ function Insights() {
 
   return (
     <div>
-      <h1 className="font-serif text-3xl text-gray-900">Insights</h1>
-      <p className="mt-1 text-sm text-gray-500">
+      <h1 className="font-serif text-3xl text-gray-900 dark:text-white">Insights</h1>
+      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
         Understand your spending patterns.
       </p>
 

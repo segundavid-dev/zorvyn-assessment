@@ -30,8 +30,8 @@ function Dashboard() {
 
   return (
     <div>
-      <h1 className="font-serif text-3xl text-gray-900">Dashboard</h1>
-      <p className="mt-1 text-sm text-gray-500">
+      <h1 className="font-serif text-3xl text-gray-900 dark:text-white">Dashboard</h1>
+      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
         Your financial overview at a glance.
       </p>
 
