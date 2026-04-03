@@ -7,6 +7,8 @@ interface TransactionState {
   isLoading: boolean;
   error: string | null;
   fetchTransactions: () => Promise<void>;
+  addTransaction: (transaction: Transaction) => void;
+  editTransaction: (id: string, updates: Partial<Transaction>) => void;
 }
 
 export const useTransactionStore = create<TransactionState>((set, get) => ({
@@ -29,5 +31,21 @@ export const useTransactionStore = create<TransactionState>((set, get) => ({
         isLoading: false,
       });
     }
+  },
+
+  addTransaction: (transaction) => {
+    set((state) => ({
+      transactions: state.transactions
+        ? [transaction, ...state.transactions]
+        : [transaction],
+    }));
+  },
+
+  editTransaction: (id, updates) => {
+    set((state) => ({
+      transactions: state.transactions?.map((txn) =>
+        txn.id === id ? { ...txn, ...updates } : txn,
+      ) ?? null,
+    }));
   },
 }));
