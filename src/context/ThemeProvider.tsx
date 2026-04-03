@@ -1,4 +1,4 @@
-import { useState, useCallback, type ReactNode } from "react";
+import { useState, useCallback, useEffect, type ReactNode } from "react";
 import type { Theme } from "../types/theme";
 import { ThemeContext } from "./ThemeContext";
 
@@ -10,30 +10,27 @@ function ThemeProvider({ children }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => {
     const stored = localStorage.getItem("theme");
     if (stored === "dark" || stored === "light") return stored;
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
+    return "light";
   });
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
 
   const toggleTheme = useCallback(() => {
     setTheme((prev) => {
       const next = prev === "light" ? "dark" : "light";
       localStorage.setItem("theme", next);
-      document.documentElement.classList.toggle("dark", next === "dark");
       return next;
     });
+    console.log("changing theme");
   }, []);
 
-  // Set the initial class on mount
-  if (theme === "dark") {
-    document.documentElement.classList.add("dark");
-  }
-
-  return (
-    <ThemeContext value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext>
-  );
+  return <ThemeContext value={{ theme, toggleTheme }}>{children}</ThemeContext>;
 }
 
 export default ThemeProvider;
