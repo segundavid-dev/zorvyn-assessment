@@ -8,7 +8,6 @@ import { useDashboardStore } from "../../stores/dashboard-store";
 import SummaryCard from "../../components/dashboard/SummaryCard";
 import BalanceTrendChart from "../../components/dashboard/BalanceTrendChart";
 import SpendingBreakdownChart from "../../components/dashboard/SpendingBreakdownChart";
-import RecentTransactions from "../../components/dashboard/RecentTransactions";
 import DashboardSkeleton from "../../components/skeleton/dashboard-skeleton";
 
 function Dashboard() {
@@ -26,7 +25,7 @@ function Dashboard() {
     return <p className="text-red-500">{error}</p>;
   }
 
-  const { summary, balanceTrend, spendingBreakdown, recentTransactions } = data;
+  const { summary, balanceTrend, spendingBreakdown } = data;
 
   return (
     <div>
@@ -61,9 +60,6 @@ function Dashboard() {
         <SpendingBreakdownChart data={spendingBreakdown} />
       </div>
 
-      <div className="mt-5">
-        <RecentTransactions transactions={recentTransactions} />
-      </div>
     </div>
   );
 }
