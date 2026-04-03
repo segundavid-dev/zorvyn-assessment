@@ -30,36 +30,24 @@ function Transactions() {
     fetchTransactions();
   }, [fetchTransactions]);
 
-  const filteredTransactions = useMemo(() => {
-    if (!transactions) return [];
+  function matchesFilters(txn: Transaction) {
+    if (searchQuery && !txn.description.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+    if (categoryFilter !== "all" && txn.category !== categoryFilter) return false;
+    if (typeFilter !== "all" && txn.type !== typeFilter) return false;
+    if (statusFilter !== "all" && txn.status !== statusFilter) return false;
+    return true;
+  }
 
-    return transactions
-      .filter((txn) => {
-        if (
-          searchQuery &&
-          !txn.description.toLowerCase().includes(searchQuery.toLowerCase())
-        )
-          return false;
-        if (categoryFilter !== "all" && txn.category !== categoryFilter)
-          return false;
-        if (typeFilter !== "all" && txn.type !== typeFilter) return false;
-        if (statusFilter !== "all" && txn.status !== statusFilter) return false;
-        return true;
-      })
-      .sort((a, b) => {
-        const dir = sortDirection === "asc" ? 1 : -1;
-        if (sortField === "date") return a.date.localeCompare(b.date) * dir;
-        return (a.amount - b.amount) * dir;
-      });
-  }, [
-    transactions,
-    searchQuery,
-    categoryFilter,
-    typeFilter,
-    statusFilter,
-    sortField,
-    sortDirection,
-  ]);
+  function compareTransactions(a: Transaction, b: Transaction) {
+    const dir = sortDirection === "asc" ? 1 : -1;
+    if (sortField === "date") return a.date.localeCompare(b.date) * dir;
+    return (a.amount - b.amount) * dir;
+  }
+
+  const filteredTransactions = useMemo(
+    () => (transactions ?? []).filter(matchesFilters).sort(compareTransactions),
+    [transactions, searchQuery, categoryFilter, typeFilter, statusFilter, sortField, sortDirection],
+  );
 
   function handleSort(field: SortField) {
     if (field === sortField) {
