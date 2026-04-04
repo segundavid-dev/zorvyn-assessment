@@ -1,5 +1,9 @@
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Sun01Icon, Moon02Icon, PanelLeftOpenIcon } from "@hugeicons/core-free-icons";
+import {
+  Sun01Icon,
+  Moon02Icon,
+  PanelLeftOpenIcon,
+} from "@hugeicons/core-free-icons";
 import { useTheme } from "../../hooks/useTheme";
 import { useRole } from "../../hooks/useRole";
 import type { Role } from "../../types/role";
@@ -9,6 +13,7 @@ interface HeaderProps {
 }
 
 function Header({ onMenuToggle }: HeaderProps) {
+  // Provides theme toggle and role selector
   const { theme, toggleTheme } = useTheme();
   const { role, setRole } = useRole();
 

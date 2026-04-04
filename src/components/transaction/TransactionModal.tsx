@@ -15,8 +15,10 @@ interface TransactionModalProps {
 }
 
 function TransactionModal({ transaction, onSave, onClose }: TransactionModalProps) {
+  // Determines if we're editing (true) or adding (false)
   const isEditing = !!transaction;
 
+  // Form init with defaults for add mode, existing values for edit mode
   const [form, setForm] = useState({
     description: transaction?.description ?? "",
     amount: transaction?.amount?.toString() ?? "",

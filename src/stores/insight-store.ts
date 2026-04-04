@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { fetchJson } from "../services/api";
 import type { InsightsData } from "../types/insights";
 
+// Insights: highest category, monthly comparison, top spending categories
 interface InsightState {
   data: InsightsData | null;
   isLoading: boolean;

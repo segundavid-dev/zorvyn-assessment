@@ -1,3 +1,4 @@
+// Color palette for pie/donut charts
 export const CHART_COLORS = [
   "#ef4444",
   "#8b5cf6",

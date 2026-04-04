@@ -15,6 +15,7 @@ interface NavItem {
   icon: IconSvgElement;
 }
 
+// Navigation items : Dashboard, Transactions, Insights
 const navItems: NavItem[] = [
   { label: "Dashboard", path: "/", icon: DashboardSquare01Icon },
   { label: "Transactions", path: "/transactions", icon: TransactionIcon },
@@ -28,7 +29,12 @@ interface SidebarProps {
   onNavClick?: () => void;
 }
 
-function Sidebar({ isCollapsed, isMobile, onToggle, onNavClick }: SidebarProps) {
+function Sidebar({
+  isCollapsed,
+  isMobile,
+  onToggle,
+  onNavClick,
+}: SidebarProps) {
   return (
     <aside
       className={`fixed left-0 top-0 z-50 flex h-screen flex-col border-r border-gray-200 bg-white transition-all duration-300 dark:border-gray-700 dark:bg-gray-900 ${

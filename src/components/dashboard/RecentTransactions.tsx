@@ -3,6 +3,7 @@ import type { Transaction, TransactionStatus } from "../../types/transaction";
 import { formatCurrency } from "../../utils/currencyFormat";
 import { formatShortDate } from "../../utils/dateFormat";
 
+// Status color mapping to replaces ternaries
 const statusStyleMap: Record<TransactionStatus, string> = {
   completed: "bg-emerald-50 text-emerald-700",
   pending: "bg-amber-50 text-amber-700",

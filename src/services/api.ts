@@ -1,5 +1,6 @@
 import type { ApiResponse } from "../types/api";
 
+// Returns {data, status, error} instead of throwing - no try-catch needed in callers
 export async function fetchJson<T>(url: string): Promise<ApiResponse<T>> {
   try {
     const res = await fetch(url);

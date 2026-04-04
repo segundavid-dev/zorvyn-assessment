@@ -11,6 +11,7 @@ import SpendingBreakdownChart from "../../components/dashboard/SpendingBreakdown
 import DashboardSkeleton from "../../components/skeleton/dashboard-skeleton";
 
 function Dashboard() {
+  // Summary cards, trend chart, spending breakdown
   const { data, isLoading, error, fetchDashboard } = useDashboardStore();
 
   useEffect(() => {
@@ -29,7 +30,9 @@ function Dashboard() {
 
   return (
     <div>
-      <h1 className="font-serif text-3xl text-gray-900 dark:text-white">Dashboard</h1>
+      <h1 className="font-serif text-3xl text-gray-900 dark:text-white">
+        Dashboard
+      </h1>
       <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
         Your financial overview at a glance.
       </p>
@@ -59,7 +62,6 @@ function Dashboard() {
         <BalanceTrendChart data={balanceTrend} />
         <SpendingBreakdownChart data={spendingBreakdown} />
       </div>
-
     </div>
   );
 }

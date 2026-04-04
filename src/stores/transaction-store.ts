@@ -12,6 +12,7 @@ interface TransactionState {
   editTransaction: (id: string, updates: Partial<Transaction>) => void;
 }
 
+// Zustand with persist middleware auto-syncs to localStorage
 export const useTransactionStore = create<TransactionState>()(
   persist(
     (set, get) => ({
@@ -20,6 +21,7 @@ export const useTransactionStore = create<TransactionState>()(
       error: null,
 
       fetchTransactions: async () => {
+        // Skip if already loaded
         if (get().transactions) return;
 
         set({ isLoading: true, error: null });
@@ -37,6 +39,7 @@ export const useTransactionStore = create<TransactionState>()(
       },
 
       addTransaction: (transaction) => {
+        // Prepend new transactions so newest appears first
         set((state) => ({
           transactions: state.transactions
             ? [transaction, ...state.transactions]
@@ -45,6 +48,7 @@ export const useTransactionStore = create<TransactionState>()(
       },
 
       editTransaction: (id, updates) => {
+        // Update by ID with immutable spread pattern
         set((state) => ({
           transactions: state.transactions?.map((txn) =>
             txn.id === id ? { ...txn, ...updates } : txn,

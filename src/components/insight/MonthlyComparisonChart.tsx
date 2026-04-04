@@ -17,6 +17,7 @@ interface MonthlyComparisonChartProps {
 }
 
 function MonthlyComparisonChart({ data }: MonthlyComparisonChartProps) {
+  // Bar chart : income vs expenses vs savings by month
   return (
     <div className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-900">
       <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">
@@ -51,9 +52,24 @@ function MonthlyComparisonChart({ data }: MonthlyComparisonChartProps) {
               iconSize={8}
               wrapperStyle={{ fontSize: "12px" }}
             />
-            <Bar dataKey="income" name="Income" fill={SEMANTIC_COLORS.income} radius={[4, 4, 0, 0]} />
-            <Bar dataKey="expenses" name="Expenses" fill={SEMANTIC_COLORS.expenses} radius={[4, 4, 0, 0]} />
-            <Bar dataKey="savings" name="Savings" fill={SEMANTIC_COLORS.savings} radius={[4, 4, 0, 0]} />
+            <Bar
+              dataKey="income"
+              name="Income"
+              fill={SEMANTIC_COLORS.income}
+              radius={[4, 4, 0, 0]}
+            />
+            <Bar
+              dataKey="expenses"
+              name="Expenses"
+              fill={SEMANTIC_COLORS.expenses}
+              radius={[4, 4, 0, 0]}
+            />
+            <Bar
+              dataKey="savings"
+              name="Savings"
+              fill={SEMANTIC_COLORS.savings}
+              radius={[4, 4, 0, 0]}
+            />
           </BarChart>
         </ResponsiveContainer>
       </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+// Responds to media query changes for responsive layout
 export function useMediaQuery(query: string): boolean {
   const [matches, setMatches] = useState(
     () => window.matchMedia(query).matches,

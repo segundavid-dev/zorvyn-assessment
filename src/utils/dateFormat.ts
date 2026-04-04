@@ -1,3 +1,4 @@
+// Format as "Jan 15"
 export function formatShortDate(date: string | Date): string {
   return new Date(date).toLocaleDateString("en-US", {
     month: "short",

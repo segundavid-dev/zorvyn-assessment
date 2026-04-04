@@ -8,6 +8,7 @@ interface SpendingBreakdownChartProps {
 }
 
 function SpendingBreakdownChart({ data }: SpendingBreakdownChartProps) {
+  // Donut chart with category legend below
   return (
     <div className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-900">
       <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">

@@ -5,6 +5,7 @@ import Header from "./Header";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 
 function DashboardLayout() {
+  // Sidebar collapses on mobile/tablet, toggleable on desktop
   const isDesktop = useMediaQuery("(min-width: 1024px)");
   const isMobile = !useMediaQuery("(min-width: 768px)");
   const [isCollapsed, setIsCollapsed] = useState(!isDesktop);

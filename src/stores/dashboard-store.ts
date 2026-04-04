@@ -7,6 +7,7 @@ import type {
 } from "../types/dashboard";
 import type { Transaction } from "../types/transaction";
 
+// Dashboard: summary, trend, spending breakdown, recent transactions
 interface DashboardData {
   summary: DashboardSummary;
   balanceTrend: BalanceTrendPoint[];
