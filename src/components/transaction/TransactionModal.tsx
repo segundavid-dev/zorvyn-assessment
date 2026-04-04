@@ -46,8 +46,8 @@ function TransactionModal({ transaction, onSave, onClose }: TransactionModalProp
     "w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm outline-none focus:border-gray-400 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:focus:border-gray-500";
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
-      <div className="w-full max-w-md rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-900">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4" onClick={onClose}>
+      <div className="w-full max-w-md rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-900" onClick={(e) => e.stopPropagation()}>
         <h2 className="font-serif text-xl text-gray-900 dark:text-white">
           {isEditing ? "Edit Transaction" : "Add Transaction"}
         </h2>
