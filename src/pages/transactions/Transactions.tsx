@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 import { useTransactionStore } from "../../stores/transaction-store";
 import { useRole } from "../../hooks/useRole";
 import TransactionFilters from "../../components/transaction/TransactionFilters";
@@ -44,10 +44,7 @@ function Transactions() {
     return (a.amount - b.amount) * dir;
   }
 
-  const filteredTransactions = useMemo(
-    () => (transactions ?? []).filter(matchesFilters).sort(compareTransactions),
-    [transactions, searchQuery, categoryFilter, typeFilter, statusFilter, sortField, sortDirection],
-  );
+  const filteredTransactions = (transactions ?? []).filter(matchesFilters).sort(compareTransactions);
 
   function handleSort(field: SortField) {
     if (field === sortField) {
