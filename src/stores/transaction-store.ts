@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 import { fetchJson } from "../services/api";
 import type { Transaction } from "../types/transaction";
 
@@ -11,41 +12,46 @@ interface TransactionState {
   editTransaction: (id: string, updates: Partial<Transaction>) => void;
 }
 
-export const useTransactionStore = create<TransactionState>((set, get) => ({
-  transactions: null,
-  isLoading: false,
-  error: null,
+export const useTransactionStore = create<TransactionState>()(
+  persist(
+    (set, get) => ({
+      transactions: null,
+      isLoading: false,
+      error: null,
 
-  fetchTransactions: async () => {
-    if (get().transactions) return;
+      fetchTransactions: async () => {
+        if (get().transactions) return;
 
-    set({ isLoading: true, error: null });
+        set({ isLoading: true, error: null });
 
-    const response = await fetchJson<Transaction[]>("/data/transactions.json");
+        const response = await fetchJson<Transaction[]>("/data/transactions.json");
 
-    if (response.status === "success") {
-      set({ transactions: response.data, isLoading: false });
-    } else {
-      set({
-        error: response.error ?? "Failed to load transactions",
-        isLoading: false,
-      });
-    }
-  },
+        if (response.status === "success") {
+          set({ transactions: response.data, isLoading: false });
+        } else {
+          set({
+            error: response.error ?? "Failed to load transactions",
+            isLoading: false,
+          });
+        }
+      },
 
-  addTransaction: (transaction) => {
-    set((state) => ({
-      transactions: state.transactions
-        ? [transaction, ...state.transactions]
-        : [transaction],
-    }));
-  },
+      addTransaction: (transaction) => {
+        set((state) => ({
+          transactions: state.transactions
+            ? [transaction, ...state.transactions]
+            : [transaction],
+        }));
+      },
 
-  editTransaction: (id, updates) => {
-    set((state) => ({
-      transactions: state.transactions?.map((txn) =>
-        txn.id === id ? { ...txn, ...updates } : txn,
-      ) ?? null,
-    }));
-  },
-}));
+      editTransaction: (id, updates) => {
+        set((state) => ({
+          transactions: state.transactions?.map((txn) =>
+            txn.id === id ? { ...txn, ...updates } : txn,
+          ) ?? null,
+        }));
+      },
+    }),
+    { name: "transactions" },
+  ),
+);
